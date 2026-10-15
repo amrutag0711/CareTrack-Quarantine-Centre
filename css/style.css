@@ -1,0 +1,409 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f5f7fa;
+  --card: #fff;
+  --tx: #14202b;
+  --mu: #5b6b7a;
+  --bd: #dde3ea;
+  --pr: #0b6bcb;
+  --ok: #1a7f4b;
+  --okb: #e0f4e9;
+  --wa: #9a6700;
+  --wab: #fff3cd;
+  --er: #b42318;
+  --erb: #fde4e1;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f161d;
+    --card: #18222c;
+    --tx: #e8eef4;
+    --mu: #93a4b4;
+    --bd: #2a3744;
+    --pr: #5aa9ff;
+    --ok: #5fd28f;
+    --okb: #12301f;
+    --wa: #f0c24b;
+    --wab: #3a2f0b;
+    --er: #ff8a80;
+    --erb: #3d1714;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font:
+    15px/1.45 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+}
+header {
+  background: var(--card);
+  border-bottom: 1px solid var(--bd);
+  padding: 10px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+h1 {
+  font-size: 17px;
+  margin: 0;
+}
+nav {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+nav button {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--tx);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+nav button.on {
+  background: var(--pr);
+  color: #fff;
+  border-color: var(--pr);
+}
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 14px;
+}
+main.wide {
+  max-width: 1100px;
+}
+h2 {
+  font-size: 14px;
+  margin: 16px 0 8px;
+  color: var(--mu);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.row2 {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.pill {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.ok {
+  background: var(--okb);
+  color: var(--ok);
+}
+.wa {
+  background: var(--wab);
+  color: var(--wa);
+}
+.er {
+  background: var(--erb);
+  color: var(--er);
+}
+.mu {
+  color: var(--mu);
+  font-size: 13px;
+}
+button.b {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--pr);
+  background: var(--pr);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.b.s {
+  background: transparent;
+  color: var(--pr);
+}
+button.b:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+input,
+select {
+  padding: 9px;
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--tx);
+  font: inherit;
+  width: 100%;
+}
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--mu);
+  margin-top: 8px;
+}
+label input,
+label select {
+  margin-top: 3px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.stat {
+  text-align: center;
+}
+.stat b {
+  font-size: 22px;
+  display: block;
+}
+.bar {
+  height: 8px;
+  background: var(--bd);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--pr);
+}
+.msg {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.f {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+.f2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.f3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  background: var(--tx);
+  color: var(--bg);
+  padding: 10px 16px;
+  border-radius: 10px;
+  display: none;
+  z-index: 9;
+  max-width: 90%;
+}
+.login {
+  max-width: 400px;
+  margin: 8vh auto;
+  padding: 14px;
+}
+.chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.chip {
+  padding: 5px 11px;
+  border-radius: 99px;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--tx);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chip.on {
+  background: var(--pr);
+  color: #fff;
+  border-color: var(--pr);
+}
+.mg {
+  display: grid;
+  gap: 10px;
+}
+@media (min-width: 860px) {
+  .mg {
+    grid-template-columns: 300px 1fr;
+  }
+}
+#res {
+  max-height: 340px;
+  overflow: auto;
+}
+.it {
+  padding: 7px 4px;
+  border-bottom: 1px solid var(--bd);
+  cursor: pointer;
+}
+.it:hover {
+  background: var(--bg);
+}
+.map {
+  width: 100%;
+  height: auto;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  display: block;
+}
+.map rect.r {
+  fill: var(--c);
+  fill-opacity: 0.3;
+  stroke: var(--bd);
+  stroke-width: 0.3;
+  cursor: pointer;
+}
+.map rect.sel {
+  stroke: var(--pr);
+  stroke-width: 0.9;
+  fill-opacity: 0.6;
+}
+.map rect.frm {
+  stroke: var(--ok);
+  stroke-width: 0.9;
+  stroke-dasharray: 1.2;
+}
+.map text {
+  font-size: 2.3px;
+  fill: var(--tx);
+  text-anchor: middle;
+  pointer-events: none;
+}
+.cor {
+  fill: var(--bd);
+}
+.rt {
+  fill: none;
+  stroke: var(--pr);
+  stroke-width: 1;
+  stroke-dasharray: 2 1.2;
+}
+.t-opd {
+  --c: #3b82f6;
+}
+.t-cabin {
+  --c: #8b5cf6;
+}
+.t-nurse {
+  --c: #14b8a6;
+}
+.t-ward {
+  --c: #22c55e;
+}
+.t-icu {
+  --c: #f97316;
+}
+.t-pharmacy {
+  --c: #eab308;
+}
+.t-emergency {
+  --c: #ef4444;
+}
+.t-other {
+  --c: #94a3b8;
+}
+.t-lift {
+  --c: #0ea5e9;
+}
+.t-stairs {
+  --c: #64748b;
+}
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--c);
+  margin-right: 3px;
+}
+.lg {
+  font-size: 12px;
+  color: var(--mu);
+  margin-right: 8px;
+}
+.steps {
+  padding-left: 20px;
+  margin: 8px 0 0;
+}
+.steps li {
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+.ck {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.ck input {
+  width: auto;
+}
+.cg {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px) {
+  .cg {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.tw {
+  overflow-x: auto;
+}
+.tw table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+}
+.tw th,
+.tw td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--bd);
+  text-align: left;
+  white-space: nowrap;
+}
+.er-t {
+  color: var(--er);
+  font-weight: 700;
+}
